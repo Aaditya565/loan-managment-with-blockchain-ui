@@ -18,22 +18,32 @@ const Signin = () => {
               <h2 className="text-2xl font-medium">Welecome back</h2>
               <p>Welcome back! Please enter your details</p>
               <form className="flex flex-col gap-2 mt-4">
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-2">
                   <label>Email</label>
-                  <input placeholder="Enter your email" type="email" />
+                  <input
+                    className="p-2 outline-none border rounded"
+                    placeholder="Enter your email"
+                    type="email"
+                  />
                 </div>
-                <div className="flex flex-col">
+                <div className="flex flex-col gap-2">
                   <label>Password</label>
-                  <input placeholder="********" type="password" />
+                  <input
+                    className="p-2 outline-none border rounded"
+                    placeholder="********"
+                    type="password"
+                  />
                 </div>
-                <div className="flex justify-between">
-                  <div>
+                <div className="flex gap-x-10">
+                  <div className="flex gap-1">
                     <input type="checkbox" />
                     <label>Remember for 30 days</label>
                   </div>
-                  <p>Forget Password?</p>
+                  <p className="text-[#7e56da]">Forget Password?</p>
                 </div>
-                <button className="bg-[#7e56da] p-3 rounded text-white">Sign In</button>
+                <button className="bg-[#7e56da] p-3 rounded text-white">
+                  Sign In
+                </button>
                 <button className="flex justify-center items-center gap-3 border-2 border-black border-solid p-2 rounded">
                   <FcGoogle />
                   Sign in with Google
@@ -41,7 +51,12 @@ const Signin = () => {
               </form>
             </div>
           </div>
-          <div className="bg-black w-1/2"></div>
+          <div className="bg-[#f3f4f8] w-1/2  flex items-center justify-center">
+            <div className="flex flex-col relative">
+              <div className="bg-[#7e56da] w-44 h-44 rounded-full "></div>
+              <div className="bg-white/30 backdrop-blur-sm absolute top-20 -right-6 w-96 h-44 blur-md"></div>
+            </div>
+          </div>
         </main>
       </>
     );
