@@ -11,8 +11,10 @@ import {
   TbDiscount,
   TbUser,
 } from "react-icons/tb";
+import { useWeb3 } from "@3rdweb/hooks";
 
 const UserProfile = () => {
+  const {address, connectWallet} = useWeb3();
     return (
       <>
         <Head>
@@ -63,7 +65,7 @@ const UserProfile = () => {
                 </div>
                 <div className="bg-[#d2c8eb] p-4 rounded text-xl flex items-center gap-2 w-fit">
                   Wallet:
-                  <p>miURu6aVVZYMpYBqAN8Gfz9YK7UvFLsKBs</p>
+                  <p>{address}</p>
                 </div>
               </div>
               <div className="mt-4">

@@ -1,10 +1,18 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
+import { useState } from 'react'
+import {useWeb3} from "@3rdweb/hooks"
+import Link from 'next/link'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  
+  const { address, connectWallet} = useWeb3();
+
   return (
     <>
       <Head>
@@ -13,9 +21,33 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        
+      <main className="flex flex-col items-center mt-4">
+        <h1 className="text-4xl font-medium">
+          Loan Managment Web App using blockchain
+        </h1>
+        {true ? (
+          <div className="flex gap-10 mt-10">
+            <button className="text-xl border-2 px-4 py-2 rounded border-[#7e56da] text-[#7e56da] hover:text-white hover:bg-[#7e56da]">
+              <Link href="/userprofile">My Profile</Link>
+            </button>
+            <button className="text-xl border-2 px-4 py-2 rounded border-[#7e56da] text-[#7e56da] hover:text-white hover:bg-[#7e56da]">
+              <Link href="/getloan">Get Loan</Link>
+            </button>
+            <button className="text-xl border-2 px-4 py-2 rounded border-[#7e56da] text-[#7e56da] hover:text-white hover:bg-[#7e56da]">
+              <Link href="/repayloan">Repay Loan</Link>
+            </button>
+          </div>
+        ) : (
+          <div className="mt-10">
+            <button
+              className="bg-blue-500 px-4 py-2 text-lg text-white rounded hover:bg-blue-600"
+              onClick={() => connectWallet("injected")}
+            >
+              Connect to Wallet
+            </button>
+          </div>
+        )}
       </main>
     </>
-  )
+  );
 }
